@@ -48,26 +48,21 @@ async function run() {
             res.send(result)
         })
 
+
         app.delete('/inventory/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) }
             const result = await deviceCollection.deleteOne(query);
             res.send(result)
         })
+
         app.get('/update/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) }
             const result = await deviceCollection.findOne(query);
             res.send(result)
         })
-
-
-
-
-
-        // const device = { name: 'symphone', description: 'smart phone' }
-        // const result = await deviceCollection.insertOne(device);
-        // console.log(`user is added with id${result.insertedId}`)
+        
     }
     finally {
 
